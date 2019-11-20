@@ -12,5 +12,10 @@ Pokemon.findById = (id) => {
       [id]
     );
   };
-
+  Pokemon.create = (name, description, image, type) => {
+    return db.one(
+      'INSERT INTO pokemon (name, description, image, type) VALUES ($1, $2, $3, $4) returning id',
+      [name, description, image, type]
+    );
+  };
 module.exports = Pokemon;

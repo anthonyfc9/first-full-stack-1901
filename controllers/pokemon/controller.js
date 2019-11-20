@@ -23,5 +23,8 @@ controller.show = (req, res) => {
     .catch(err => console.log('ERROR:', err));
 };
 
+controller.new = (req, res) => {
+  res.render('pokemon/new');
+};
 
 module.exports = controller;
