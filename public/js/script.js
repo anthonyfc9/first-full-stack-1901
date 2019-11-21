@@ -36,11 +36,11 @@ function packUpForm(){
     document.getElementById("update-pokemon-form").addEventListener("submit", function(e){
       let id = document.getElementById("poke-id-input").value;
       let dataPackage = packUpForm();
-      dataPackage.id = id
+      dataPackage.id = id;
       e.preventDefault();
       // call the backend URL that we set up, AND call it response so we can do something with it
       fetch('/api/pokemon/' + id, {
-              method: 'post',
+              method: 'put',
               body:    JSON.stringify(dataPackage),
               headers: { 'Content-Type': 'application/json' }
       })

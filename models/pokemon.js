@@ -19,12 +19,12 @@ Pokemon.findById = (id) => {
     );
   };
 
-Pokemon.update = (name, description, image, type, id) => {
-  return db.one(
-    'UPDATe pokemon SET name = $1, description =$2, image = $3, type = $4, id = $5'
-    [name, description, image, type, id]
-  );
-};
+  Pokemon.update = (name, description, image, type, id) => {
+    return db.one(
+      'UPDATE pokemon SET name = $1, description = $2, image = $3, type = $4 WHERE id = $5 returning id',
+      [name, description, image, type, id]
+    );
+  };
 
 
 

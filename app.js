@@ -4,7 +4,7 @@ const bodyParser     = require('body-parser');
 const pgp = require('pg-promise')();
 
 const app  = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 
 // normal setup for express & mustache (if we want to go there)
 app.engine('html', mustacheExpress());
