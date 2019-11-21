@@ -18,4 +18,14 @@ Pokemon.findById = (id) => {
       [name, description, image, type]
     );
   };
+
+Pokemon.update = (name, description, image, type, id) => {
+  return db.one(
+    'UPDATe pokemon SET name = $1, description =$2, image = $3, type = $4, id = $5'
+    [name, description, image, type, id]
+  );
+};
+
+
+
 module.exports = Pokemon;

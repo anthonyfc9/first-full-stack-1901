@@ -18,13 +18,22 @@ controller.show = (req, res) => {
   Pokemon
     .findById(id)
     .then((data) => {
-      res.render('pokemon/singles',data);
+      res.render('pokemon/show',data);
     })
     .catch(err => console.log('ERROR:', err));
 };
 
 controller.new = (req, res) => {
   res.render('pokemon/new');
+};
+
+controller.update = (req, res) => {
+  const id = req.params.id;
+  Pokemon
+  .findById(id)
+  .then(data => {
+    res.render('pokemon/update', data);
+  })
 };
 
 module.exports = controller;

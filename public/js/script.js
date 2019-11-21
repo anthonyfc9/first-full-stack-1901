@@ -30,3 +30,28 @@ function packUpForm(){
       .catch(err => console.error("fetch error: ", err)); // end of functional instructions
     }); // end of event listener
   }; // end of window.onload
+
+
+  window.onload = function() {
+    document.getElementById("update-pokemon-form").addEventListener("submit", function(e){
+      let id = document.getElementById("poke-id-input").value;
+      let dataPackage = packUpForm();
+      dataPackage.id = id
+      e.preventDefault();
+      // call the backend URL that we set up, AND call it response so we can do something with it
+      fetch('/api/pokemon/' + id, {
+              method: 'post',
+              body:    JSON.stringify(dataPackage),
+              headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => {
+          // resolve the promise
+          return response.json();
+      })
+      .then(data =>{
+        console.log("data: ", data);
+        window.location.replace('/pokemon/' + data.id);
+      })
+      .catch(err => console.error("fetch error: ", err)); // end of functional instructions
+    }); // end of event listener
+  }; // end of window.onload
