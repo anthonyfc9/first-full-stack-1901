@@ -55,3 +55,22 @@ function packUpForm(){
       .catch(err => console.error("fetch error: ", err)); // end of functional instructions
     }); // end of event listener
   }; // end of window.onload
+
+  window.onload = function() {
+    document.getElementById("delete-pokemon").addEventListener("click", function(e){
+      const id = document.getElementById("delete-pokemon").value;
+      console.log(id);
+      
+      fetch('/api/pokemon/' + id, {
+        method: 'delete',
+        body:    JSON.stringify({id: id}),
+        headers: { 'Content-Type': 'application/json' }
+})
+.then(response => {
+    // resolve the promise
+    return response.json();
+    window.location.replace('/pokemon/');
+})
+.catch(err => console.error("fetch error: ", err));
+    }); // end of event listener
+  };

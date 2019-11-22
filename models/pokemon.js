@@ -26,6 +26,12 @@ Pokemon.findById = (id) => {
     );
   };
 
+  Pokemon.delete = (id) => {
+    return db.none(
+      'DELETE FROM pokemon WHERE id = $1',
+      [id]
+    );
+  };
 
 
 module.exports = Pokemon;
