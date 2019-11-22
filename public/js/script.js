@@ -67,8 +67,6 @@ function packUpForm(){
         headers: { 'Content-Type': 'application/json' }
 })
 .then(response => {
-    // resolve the promise
-    return response.json();
     window.location.replace('/pokemon/');
 })
 .catch(err => console.error("fetch error: ", err));

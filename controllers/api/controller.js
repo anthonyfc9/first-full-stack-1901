@@ -24,7 +24,7 @@ controller.update = (req, res) => {
 };
 
 controller.delete = (req, res) => {
-  const id = req.params.id;
+  const id = req.body.id;
 
   Pokemon
   .delete(id)
